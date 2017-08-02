@@ -73,3 +73,19 @@
 - Change App component to class component.
 - It also works in functional component unless outside of a top class component. Create a Greetings component to try it works.
 
+#04 Router & basic navigation
+- In index.html linked bootstrap CDN
+- In App Create NavigationBar component inside container tag
+- In Index.js Import Route, BrowserRouter, Switch from react-router-dom.
+- Move App component inside of  BrowserRouter.
+- Install react-router-dom.
+- In App below NavigationBar render App child component via this.props.children
+- In index.js define all the nested/child component App add Switch inside of it define all the child using Route component & set it's path & component to render
+- App component our main layout component. It has the layout impormation, navigation, sidebar etc.
+- But when we change route we want to render route specific content in some place inside App component.
+- This content is store on this.props.children. 
+- Import Greetings & SignupPage component
+- Go to Greetings add jumbotron. & check server expect it will not work. It's because Greetings becomes the top component for this particular route. As a rule make all Route/Root component as a class component. So change it as a class component.
+- Organize component page pages or features.
+- Create signup route component. set component value to SignupPage component. Import it from signup/SignupPage/
+- Set Red Dice, Sign up as link. Use Link component point to / and /signup. Import Link 
