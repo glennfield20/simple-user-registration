@@ -105,3 +105,34 @@
 - Create timezone select field
 - Install it lodash/map & Import map from lodash/map inside of Form
 - Use map to create multiple options field & get the data in the timezones
+
+#06 Make ajax request via redux thunk action
+- Install axios & import in Form.
+- In Form Use axios libraries to make post request to '/api/users'
+- Send data user: { this.state }
+- Check network tab click the users switch to Headers tab. You can see in 
+	Request Payload the request data that you sent.
+- Install react-redux Import Provider in client/index.js
+- Wrapped App component by Provider & set provider store equal to store.
+- Define store using createStore arguments state default empty object &
+	return state. Second is initial state but we dont have so proceed to 3rd
+	arguments applyMiddleware(thunk)
+- Thunk middleware allow us to dispatch asyschronous request.
+- Import thunk from redux-thunk & createStore, applyMiddleware from redux.
+- Install redux, react-redux & redux-thunk.
+- Now intead of using axios directly, were going to call a function from props
+	past this.state as argument. We can remove imported axios.
+- As we expecting to have a props func, Lets define PropTypes.
+- SignupForm.propsTypes userSignupRequest props isRequired.
+- Check console warning it tells we need to pass userSignupRequest props.
+- So go to the parent class which is the SignupPage.
+- Define &  get userSignupRequest to this.props
+- adds the SignupForm userSignupRequest props value.
+- Define also a propsTypes in SignupPage because it's expecting to have a props.
+- Import & use connect from react-redux. 
+- Connect has 2 parameters connect(mapStateToProps, mapDispatchToProps)
+- set mapStateToProps to return empty objects null. Because we don't have store state here
+- set mapDispatchToProps to action object.{ usersSignupRequest }
+- import usersSignupRequest action from actions/signupActions.js.
+- In signupActions export function usersSignupRequest(userData) return a dispatch function.return axios request.
+- Import axios in signupActions.
