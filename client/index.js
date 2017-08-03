@@ -13,7 +13,6 @@ render(
 				<Route path="/signup" component={SignupPage} />
 			</Switch>	
 		</App>
-	</BrowserRouter>
-	,
+	</BrowserRouter>,
 	document.getElementById('app')
 )
