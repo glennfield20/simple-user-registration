@@ -1,0 +1,18 @@
+#09 Two ways to redirect.
+
+GOAL REDIRECT USER IN SUCCESSFULL SIGNUP.
+- Two ways using browswer history directly & using react-router.
+- In routes/users change condition to if else
+	set response status equal to 200 via setting response success
+	equal to true.
+
+- Using react-router
+- Adds SignupForm contextTypes router object is required.
+- the root path when success. Just set the value of empty args of
+	then equal to this.context.router.history.push('/')
+
+- Using browswer history
+- Go in SignupPage adds SignupForm props history set to 
+	this.props.history
+- Adds SignupPage propsTypes history object is required.
+- Back SignupForm onSubmit use this.props.history.push('/')

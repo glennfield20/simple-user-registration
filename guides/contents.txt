@@ -11,3 +11,5 @@
 #06 Make ajax request via redux thunk action
 
 #07 Server-side Validation
+
+#08 Client side validation & refactoring
