@@ -1,0 +1,29 @@
+#08 Client side validation & refactoring
+- In SignupForm wrap the lines in condition isValid() create that
+	function. Reuse validateInput() from server validation. set this.		state as the argument of that.
+- Deconstruc that function assign errors & isValid.
+- set state errors if !isValid. Return isValid value.
+- Extract validateInput from the server to server/shared/validations
+	/signup.js export that function as default.
+- Remove importing of Validator & isEmpty moved to validations/signup.
+- Import validateInput also in SignupForm.
+- Run server expect error unexpected token import. That happen because we need to instruc webpack to includes this file in to the bundle.js
+- In webpack.config change include to array add another path 'server/shared'
+- Run server expect validation works & there's no network request. Because
+	it's block in the client side validations.
+
+- Now let looks in the Form as you can see there's a lot of redundant dupli-
+	cation of code here. In the future this gonna be a pain for us.
+- So were going extract all textfields. Were going to make a common 
+	directories for all common text fields.
+- Create /components/common/TextFieldGroup.js create a function components.
+- In TextFieldGroup define it's propTypes for field, value, label, error,
+	type, onChange. set all type required except for error. Just define the
+	error type.
+- Set also the defaultProps only in type as text.
+- Now deconstruct all requied props in the TextFieldGroup params.
+- Now Define the rest of the component. It's just a markup.
+- Import classnames.
+- Now in SignupForm remove all the textfield instead use the 
+	TextFieldGroup component.
+- Import TextFieldGroup from common.
