@@ -1,0 +1,33 @@
+#02 Project Setup_Render react component
+	- In html add div id root or app.
+	- Create index.js inside of client folder.
+	- import React, render, App in client/index.js
+	- render App component in the `root` or `app`.
+  - Create App component. Import React & export default function `Hello from React`
+	- Install react react-dom
+	- Add script tag & point it to `bundle.js` (Webpack will bundle all client stuff
+		into one bundle.js file & then it will serve it.)
+
+	SETUP WEBPACK
+	- Install webpack & webpack-dev-middleware to the dev.
+	- In server/index.js import webpack from webpack & webpackMiddleware from webpack-dev-middleware
+	- Import webpackConfig from root '../webpack.config.dev.js'
+	- use webpackMiddleware it takes a compiler which is the webpack that compile webpackConfig
+	- create webpack.config.dev.js & export default object
+	- set entry to /client/index.js using path import it.
+  - set output object
+			path to __dirname
+			filename to bundle.js
+			publicPath: '/'
+	- set module object loaders array of object.
+		- test to all .js of the end of a file. /\.js$/
+		- include to only all file inside `client`.
+		- loaders an array include babel-loader to transfile es6 code
+		
+	- set resolve object extensions array include with "*" and .js file
+	- Restart server
+	- babel doesn't understand react so we need add react in the babelrc preset.
+  - install babel-preset-react.
+	- Restart server you should see no errors and check in the console StateLess
+		component.
+  - set devtool to eval-source-map. Use for debugging.

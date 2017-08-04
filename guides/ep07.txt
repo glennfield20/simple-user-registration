@@ -1,0 +1,42 @@
+#07 Server-side Validation
+- In server/index.js define and use users routes
+- use app set 1st args as the routes location and 2nd argument is the user
+	routes.
+- Import users from './routes/users' & create this file.
+- In routes/users import express initialize express.Router()
+- export default router
+- Define the user post routes
+- We need to parse to get data. so we need another middleware bodyParser.
+- Install body-parser. & Import in server/index.js
+- In index use bodyParser and translate to json using json middleware.
+- test go to routes/users console req.body
+- Run server expect all data is parse in the output.
+
+- In routes/users We can now validate In routes/users Import Validator from validator. Install it first.
+- create functions validateInput validate request body. get the errors & isValid on it.
+- below write a function if not valid set response status to 400 & return errors in json format.
+- define function validateInput return objects errors & isValid.
+- initialize errors to empty first.
+- get the result of isEmpty errors & assign to isValid.
+- import isEmpty from lodash/isEmpty.
+- Define validation fields below initialization of errors.
+- for checking required use Validator.isNull(data.fields) 
+- return errors.field = 'This field is required.'
+- for checking valid email use .isEmail(data.email)
+- for matching password & passwordConfirmation use .equals(param1, param2)
+
+- Now we can use this response to display in client side.
+- Go in SignupForm in onSubmit. get the response via then
+	argument is empty object and catch error and setState of errors equal to
+	error.response.data
+- add another state errors & in submit clear the errors everytime it submit.
+- now inside render grab the errors const { errors } = this.state
+- and on each field check field if has errors if yes append span tag 
+  with className = help-block and display the errors.fieldName then try it.
+- Import & Install classnames to handle all class including for errors.
+- Use className set default class to form-group 2nd object args. has-error
+	in the case errors.fields has errors. 
+- Apply also to other fields.
+- Apply disabled in button add isLoading state & in onSubmit.
+  set isLoading to false when submit & true after.
+

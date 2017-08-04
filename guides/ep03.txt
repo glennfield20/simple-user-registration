@@ -1,0 +1,26 @@
+#03 Hot realoading setup
+
+- Install to dev webpack-hot-middleware
+- In server/index.js Import webpackHotMiddleware from 'webpack-hot-middleware'
+- Use webpackHotMiddleware to compile webpackConfig
+- Set value for the second argument of webpackMiddleWare
+	- set hot to true
+  - public path to webpackConfig output publicPath
+  - noInfo to true ( Eliminate noise to webpack )
+
+- Go to wepack config
+- Set output object publicPath and path to '/'
+- Change entry string to array of string
+- And new data to entry 'webpack-hot-middleware/client'
+- Import webpack in webpack config.
+- Add plugins array adds webpack plugin
+	- add new webpack NoErrorsPlugin() ( handles errors messages in more cleaner way )
+	- add new optimize.OccurrenceOrderPlugin() (ensures consistent build hashes)
+	- add new HotModuleReplacementPlugin()
+- Install to dev react-hot-loader
+- Teach how react how to reload it self.
+- Adds `react-hot-loader` in loaders.
+- Run server
+- Use class component instead of functional component at the top of hierchy to automatically reload page when theres is changes.
+- Change App component to class component.
+- It also works in functional component unless outside of a top class component. Create a Greetings component to try it works.

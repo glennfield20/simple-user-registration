@@ -1,0 +1,14 @@
+#01 Project Setup_Server index.html with ExpressJs
+	- create index.js inside server dir
+	- import express & initialize
+	- Define catch all routes
+	- make app listen to port 3000 and console.log('Running on localhost:3000')
+	- install & setup babel-cli and also install express
+	- Define new command `server` in package & use `babel-node` to run server/index.js
+	- Install babel-preset-es2015 in dev.
+	- Create .babelrc file and config babel define presets to es2015.
+	- In index.js send html index.html use path.
+	- Install to nodemon (This package will restart our server everytime
+		we change any file inside server folder)
+	- In package instead of babel-node only we use nodeman & watch only the server folder		 & provide file which nodemon will run.
+  - Create .gitingore file and ignore node_modules

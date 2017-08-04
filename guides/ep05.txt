@@ -1,0 +1,15 @@
+#05 User Sign Up Form and its State
+- In SignupPage render SignupForm class component. Every Form should be a class component because it hold states.
+- Adds form state. set username default value equal to state.username.
+- Adds onChange handler bind onChange on this so you refer onChange only in tthe current file.
+- setState of all fields using [e.target.name]: e.target.value
+- Adds form onSubmit event always bind event. try console the state & check it.
+
+- Adds state email password passwordConfirmation & timezone use appropriate type.
+
+- Adds timezone data i client/data/timezones.js
+- Here https://github.com/Remchi/reddice/blob/master/client/data/timezones.js
+- In Form import timezones from data/timezones
+- Create timezone select field
+- Install it lodash/map & Import map from lodash/map inside of Form
+- Use map to create multiple options field & get the data in the timezones
