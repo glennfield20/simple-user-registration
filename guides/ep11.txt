@@ -1,0 +1,37 @@
+#11 Flash Messages Reducer Part 2
+
+- Import & Adds FlassMessagesList component in App.js. 
+- Create components/flash/FlassMessagesList.js this is going to be a connected component.
+  because we need to get the data from store.
+- Set FlassMessagesList propTypes messages array.
+- Adds connect mapStateToProps get messages data to state.flashMessages
+- display messages in the div.
+- deconstruct messages from this.props.messages map each message and display data in
+  FlashMessage component with key equal to message.id & message equal to message.
+- Import & Define FlashMessage it is also a class component.
+- Define PropTypes message object required.
+- Deconstruct id, type, text from this.props.message
+- import classnames set default class to alert
+- handle alert-success when type is success else alert-danger when error. Then render text.
+
+- Now where going to add an options to delete the flash message.
+- Add button with a class 'close' inside of it is a span with a value equal to &times;
+- add onClick behavior equal to this.onclick
+- Everytime you add a function we need to define constructor so we can bind all 
+  functions. Adds constructor bind the this.onClick
+- Define onClick inside call props functions deleteFlashMessage pass this.props.mesage.id
+- Include that function to PropTypes and also to FlashMessageList
+- In FlashMessagesList add mapDispatchToProps function deleteFlashMessage
+- Import deleteFlashMessage from actions/flashMessages.
+- Include deleteFlashMessage as props in FlashMessage Component
+- Define deleteFlashMessage action return type: DELETE_FLASH_MESSAGE and id
+- Import that constant.
+- Now teach reducer how to handle that action add another case.
+- define index = findIndex(state, { id: action.id })
+- import findIndex from 'lodash/findIndex'
+- Condtion if find if index >= 0 return new state
+  return array starting from the first one to the index
+  and then all elements starting from the index plus 1 to the end of the array.
+  this way it exclude the found element. otherwise just return the state.
+- run server expect it will not work because we forgot to deconstruct deleteFlashMessage
+- so for now just update it value to this.props.deleteFlashMessage.
