@@ -1,0 +1,40 @@
+#12 Save user in Database.
+
+- Here were going to use Postgresql for our DB. run createdb reddice.
+- Install knex locally & globally. Knex will handle migration & seeds data.
+- Initialize knext in the current project. knex init. This will create ./knexfile.js
+- Copy staging config to development. But update the user & password base on your local config.
+- Install pg driver. Create migration knex migrate:make users. This will create user migration file.
+- return a promise. In up migration from knex.schema createTable accepts table name & function(table)
+- While in down migration. return from knex.schema dropTable('tablename').
+- Define table fields. via table. id, username, email, timezone, password_digest, timestamps.
+  use this format table.dataType('fieldName').option1().option2()
+  in Id just call table.increments() & for timestamps table.timestamps().
+- Run migration knex migrate:latest
+- You can run knex to see it's other usefull command.
+
+- Now we need a way to save users in the database. We use bookshelf for our ORM purposes.
+- Install bookshelf. create a file inside of server bookshelf.js
+- Import knex, bookshelf, knexConfig from ../knexfile.
+- export default bookshelf pass knex with an knexConfig.development as arguments.
+- Now we have everything we need to save users.
+
+- Now in routes/users Install & Import bcrypt.
+- Create Import User from inside of server/models/user.
+
+- In user model import bookshelf from the bookshelf file.
+- Now export default bookshelf.Model.extend({ tablename: 'users' })
+- In routes/users in isValid Condtion.
+  - Deconstruct variables from req.body
+  - Define password_digest equal to bcrypt.hashSync(password, 10)
+
+- User User model to forge those object. 1st object is the
+  username, timezone, email, password_digest. The 2nd args is
+  object hasTimestamps set to true. and save by just appending save()
+  then append then return request in json set success to true.
+  and catch err as the argument return response status equal to 500
+  and set error to err via jason.
+- Run the server and save a user.
+- To check if it's really save in DB. run psql databaseName.
+- type \x auto to have printed data rendering.
+- Run select * from users.
