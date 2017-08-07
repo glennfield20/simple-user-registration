@@ -1,0 +1,39 @@
+#14 Uniqueness Validation on Client.
+
+- In TextFieldGroup add onBlur attr in input. Assign checkUserExists.
+- Deconstruct checkUserExists. & include in PropTypes. But not
+  required.
+
+- Open SignupForm in username & email. Add props checkUserExists
+  Assign this.checkUserExists.
+
+- Define checkUserExists function and bind it.
+- Define field = e.target.name val = e.target.value
+- Check if val is not empty.
+- Call props isUserExists pass the val then deconstruct response
+- Adds isUserExists in PropTypes. Required.
+
+- We need to pass this function in the SignupForm compoent. Go to SignupPage.
+- Open SignupPage import isUserExists from signup actions.
+- Add it in the deconstructions.Then add it in Form component.
+- Include it in PropTypes. Then add it in connect.
+
+- Define it in actions parameter identifier. return asysnchronous request.
+  from '/api/users/${identifier}'
+
+- Create the endpoint and new route get('/:identifier') take req, res
+- Select only username & email. use where & orWhere then fetch it return propmise.
+-  return json user if theres found.
+
+- Run server check input the same email. Expect request.
+
+- Assign errors from this.state.errors
+- Check request data has user set errors[field] equal to 'There is user with such' + field
+- Otherwise set errors for that field to empty.
+- Then errors state.
+- Adds new state invalid default false.
+- In the button disabled will set to true if invalid is true.
+- In our event handler define invalid.
+- Set invalid to true when user found else invalid false.
+- set state for invalid.
+

@@ -1,0 +1,22 @@
+#13 Signup Uniqueness Validation on Server.
+
+- Signup with existing email & username. expect error 
+  from network preview click error > detail.
+- Enhanced validation to access database.
+- change validateInput to commonValidations.
+- Define high ordered functions validateInput(). Run this function as asynchronous functions.
+- With 2 parameters data and otherValidations.
+- Inside of it Deconstruct otherValidations.
+- Inside of router.post call validateInput() pass req.body & commonValidations.
+  append then to deconstruct the return. now move isValid conditions.
+
+- Now we need to check if the username & email exists in the DB. There are 2 ways
+- 1st we can make 2 query to the db seperately. or 1 query and the check the result.
+
+- Instead of using 2 promises we gonna return only 1 promises.
+- Using bookshelf we can query User. find record using where email and orWhere username
+  then fetch then deconstruc user via then. inside of it,  if user found.
+  set error for duplicate email & username. Use get to get the value of the field. 
+  - error format 'There is user with such username | email'
+- Below return the same object error and isValid. use isEmpty to check data has value.
+

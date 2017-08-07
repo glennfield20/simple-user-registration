@@ -18,15 +18,15 @@ const store = createStore(
 )
 
 render(
-	<BrowserRouter>
-		<Provider store={store}>
-			<App>
-				<Switch>
-					<Route exact path="/" component={Greetings} />
-					<Route path="/signup" component={SignupPage} />
-				</Switch>	
-			</App>
-		</Provider>
-	</BrowserRouter>,
-	document.getElementById('app')
+  <BrowserRouter>
+    <Provider store={store}>
+      <App>
+        <Switch>
+          <Route exact path="/" component={Greetings} />
+          <Route path="/signup" component={SignupPage} />
+        </Switch>	
+      </App>
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById('app')
 )
