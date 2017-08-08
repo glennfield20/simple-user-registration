@@ -20,9 +20,9 @@ class FlashMessage extends React.Component {
         'alert-danger': type === 'error'
       })}>
 
-        <button onClick={this.onClick} className='close'><span>&times;</span></button>
-        {text}
-      </div> 
+      <button onClick={this.onClick} className='close'><span>&times;</span></button>
+      {text}
+    </div> 
     )
   }
 }
